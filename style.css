@@ -14,9 +14,11 @@ body {
 }
 
 header {
+  display: flex;
   border: solid;
   padding-bottom: 20px;
 }
+
 
 nav{
   display: flex;
