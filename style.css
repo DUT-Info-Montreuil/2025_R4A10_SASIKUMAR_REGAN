@@ -24,7 +24,7 @@ header {
     padding-left: 20px;
 }
 
-nav {
+#menu {
     display: flex;
     padding-right: 20px;
     list-style: none;
@@ -32,23 +32,49 @@ nav {
     gap: 20px;
 }
 
-@media screen and (width <= 768px) {
-    nav {
-        display: none;
-    }
+
+#menu.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    padding: 20px;
 }
 
 #toggle-menu {
-  display: none;
+    display: none;
 }
 
 @media screen and (width <= 768px) {
     #toggle-menu {
-      display: block;
-      padding-right: 20px;
-      align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
     }
 }
+
+#arrow_left {
+    display: none;
+}
+
+#arrow_left.active {
+    display: flex;
+}
+
+#arrow_right {
+    display: none;
+}
+
+#arrow_right.active {
+    display: flex;
+}
+
 
 footer {
     display: grid;
