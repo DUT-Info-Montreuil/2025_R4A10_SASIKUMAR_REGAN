@@ -1,91 +1,112 @@
 a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
 }
 
 header {
-  display: flex;
-  border: solid;
-  padding-bottom: 20px;
+    display: flex;
+    border: solid;
+    padding-bottom: 20px;
+    justify-content: space-between;
 }
 
-
-nav{
-  display: flex;
-  list-style: none;
-  padding-left: 40px;
-  align-items: center;
-  gap: 20px;
+#titre-header {
+    padding-left: 20px;
 }
 
+nav {
+    display: flex;
+    padding-right: 20px;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (width <= 768px) {
+    nav {
+        display: none;
+    }
+}
+
+#toggle-menu {
+  display: none;
+}
+
+@media screen and (width <= 768px) {
+    #toggle-menu {
+      display: block;
+      padding-right: 20px;
+      align-items: center;
+    }
+}
 
 footer {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  border: solid;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    border: solid;
 }
 
 @media screen and (width >= 768px) {
-  footer {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media screen and (width >= 1024px) {
-  footer {
-    grid-template-columns: repeat(4, 1fr);
-  }
+    footer {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 /** A partir de 2000px de large, mon style ne sera plus géré
 et on reviendra au style précédent */
 @media screen and (width >= 1200px) and (width < 2000px) {
-  footer {
-    grid-template-columns: repeat(4, 1fr);
-  }
+    footer {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .grid {
-  list-style: none;
-  padding: 20px 10px 150px 10px;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
+    list-style: none;
+    padding: 20px 10px 150px 10px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
 }
 
 .card {
-  padding: 10px;
-  border: 1px solid black;
+    padding: 10px;
+    border: 1px solid black;
 }
 
 @media screen and (width >= 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media screen and (width >= 1024px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /** A partir de 2000px de large, mon style ne sera plus géré
 et on reviendra au style précédent */
 @media screen and (width >= 1200px) and (width < 2000px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 
