@@ -1,5 +1,3 @@
-
-// Pour ce fichier, toutes les questions à partir de Q1 nécessitent d'appeler cette fonction pour récupérer sa valeur
 function getArray() {
   return [12, 7, 6, 15, 41, 24, 13];
 }
@@ -10,85 +8,78 @@ module.exports = {
     return true;
   },
 
-  //1) Récupérer le tableau depuis getArray() et renvoyer un nouveau tableau ne contenant que les valeurs supérieures ou égales à 15 
-  // en utilisant une méthode de tableau
+  //1) Récupérer le tableau et filtrer les valeurs >= 15
   Q1() {
-    let array15 = [];
-    for (const element of getArray()) {
-      if (element >= 15) {
-        array15.push(element);
-      }
-    }
-    return array15;
+    return getArray().filter(num => num >= 15);
   },
 
-  //2) Renvoyer l'index de la première valeur strictement inférieure à 7
+  //2) Trouver l'index de la première valeur strictement inférieure à 7
   Q2() {
-    for (const element of getArray()) {
-      return element < 7 ? element : "Aucune valeur strictement inferieur à 7.";
-    }
+    return getArray().findIndex(num => num < 7);
   },
 
-  //3) Inverser le tableau en utilisant une méthode spécifiquement prévue à cet effet. Renvoyez ce tableau inversé
+  //3) Inverser le tableau
   Q3() {
-    return getArray().reverse();
+    return getArray().slice().reverse();
   },
 
-  //4) Trier le tableau dans l'ordre croissant, renvoyez le tableau trié
+  //4) Trier le tableau en ordre croissant
   Q4() {
-    let arrayOrdered = [];
-    let arrayAlreadyPass = [];
-    let lilOne;
-    getArray().order
-    for (const element of object) {
-      if (!element in arrayAlreadyPass) {
-        
-      }
-    }
+    return getArray().slice().sort((a, b) => a - b);
   },
 
-  //5) Ajouter la valeur 0 en premier index du tableau, renvoyez le tableau modifié
+  //5) Ajouter 0 en premier index
   Q5() {
-    // Implémentation ici
+    let arr = getArray().slice();
+    arr.unshift(0);
+    return arr;
   },
 
-  //6) Faire la somme des éléments du tableau avec une boucle for. Renvoyez la somme
+  //6) Faire la somme avec une boucle for
   Q6() {
-    // Implémentation ici
+    let sum = 0;
+    for (let num of getArray()) {
+      sum += num;
+    }
+    return sum;
   },
 
-  //7) Faire la somme des éléments du tableau avec une méthode spécifique de tableau (reduce), renvoyez la somme
+  //7) Faire la somme avec reduce
   Q7() {
-    // Implémentation ici
+    return getArray().reduce((acc, num) => acc + num, 0);
   },
 
-  //8) Remplacer la troisième valeur du tableau par "ici", renvoyez le tableau
+  //8) Remplacer la troisième valeur par "ici"
   Q8() {
-    // Implémentation ici
+    let arr = getArray().slice();
+    arr[2] = "ici";
+    return arr;
   },
 
-  //9) Retirer le dernier index, renvoyez le tableau
+  //9) Retirer le dernier élément
   Q9() {
-    // Implémentation ici
+    let arr = getArray().slice();
+    arr.pop();
+    return arr;
   },
 
-  //10) Renvoyez le type de la variable ARRAY
+  //10) Renvoyer le type de getArray()
   Q10() {
-    // Implémentation ici
+    return typeof getArray();
   },
 
-  //11) En utilisant une méthode spécifique aux tableaux, renvoyer un booléen vérifiant que le résultat de getArray() est bien un tableau
+  //11) Vérifier si getArray() est un tableau
   Q11() {
-    // Implémentation ici
+    return Array.isArray(getArray());
   },
 
-  //12) Renvoyer le tableau sous forme de chaîne de caractère où les éléments sont séparés par un tiret (-)
+  //12) Transformer le tableau en chaîne de caractères séparés par un tiret
   Q12() {
-    // Implémentation ici
+    return getArray().join("-");
   },
 
-  //13) Renvoyer le tableau en gardant uniquement les 2 derniers éléments
+  //13) Garder uniquement les 2 derniers éléments
   Q13() {
-    // Implémentation ici
+    return getArray().slice(-2);
   }
 };
