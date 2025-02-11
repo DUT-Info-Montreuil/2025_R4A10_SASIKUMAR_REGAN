@@ -14,20 +14,14 @@ Créez le type HttpMethod, qui combine les valeurs suivantes (chaines de caract�
 Retenez ces verbes, ils sont utilisés aussi bien en backend qu'en frontend
 */
 
-type HttpMethod = {
-    GET : String;
-    POST : String;
-    PUT : String;
-    PATCH : String;
-    DELETE : String;
-};
+type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 
 /*
-2. La Requête 
+2. La Requête
 
-La requête représente les informations envoyées par le frontend vers l'API (ou bien d'une API à une autre). 
-L'essentiel est que la requête = informations provenant de l'envoyeur. 
+La requête représente les informations envoyées par le frontend vers l'API (ou bien d'une API à une autre).
+L'essentiel est que la requête = informations provenant de l'envoyeur.
 Le protocole HTTP se base sur d'autres protocoles dont on fera abstraction ici, on supposera qu'une requête contient les paramètres suivants:
 
 - method, la méthode utilisée pour faire l'appel, obligatoire, de type HttpMethod
@@ -42,35 +36,37 @@ Créez le type associé
 A noter: En TS, on note l'inconnu avec le type unknown. Ce type évite d'utiliser any et nécessite un cast ultérieur vers la valeur souhaitée
 */
 
-type HttpRequete = {
-    method : HttpMethod;
-    url : String;
-    params? : Array<String>;
-    query? : Map<String,String>;
-    body? : Map<String, unknown>;
-    headers : String;
+type HttpRequest = {
+  method: HttpMethod;
+  url: string;
+  params?: string[];
+  query?: string | Record<string, string>;
+  body?: Map<string, unknown>;
+  headers: { "Content-Type": string } & Map<string, string>;
 };
 
-/* 
+/*
 3. Guard
 
-Lorsqu'on souhaite protéger une API 
-on utilise des fonctions pour vérifier si l'utilisateur qui fait la demande à le droit d'accéder à la ressource 
+Lorsqu'on souhaite protéger une API
+on utilise des fonctions pour vérifier si l'utilisateur qui fait la demande à le droit d'accéder à la ressource
 Ces fonctions prennent des noms différents, mais sont liées au concept d'autorisation. Ici, nous appellerons ces fonctions des Guards.
 
-Le type Guard est très simple, il possède uniquement une fonction nommée canActivate. Cette fonction renvoie soit un booléen, soit une promesse 
-contenant un booléen. La promesse est la base de la programmation asynchrone en JS. Pour la noter, on utilise Promise<le_type_final>. 
+Le type Guard est très simple, il possède uniquement une fonction nommée canActivate. Cette fonction renvoie soit un booléen, soit une promesse
+contenant un booléen. La promesse est la base de la programmation asynchrone en JS. Pour la noter, on utilise Promise<le_type_final>.
 La fonction canActivate prend un paramètre, de type Request
 
 Retenez la notion de Guard, elle vous sera utile en Angular également
 */
 
-// Implémentez ici
+type Guard = {
+  canActivate: (request: HttpRequest) => boolean | Promise<boolean>;
+};
 
 /*
-4. Interceptor 
+4. Interceptor
 
-Lorsqu'on effectue une requête, on a parfois besoin d'ajouter des informations ou de la logique avant son traitement par l'API, ou bien son traitement 
+Lorsqu'on effectue une requête, on a parfois besoin d'ajouter des informations ou de la logique avant son traitement par l'API, ou bien son traitement
 terminé. C'est le rôle de l'intercepteur.
 
 Le type est également très simple, il contient une fonction intercept, qui ne renvoie rien et prend en paramètre un argument de type Request
@@ -78,19 +74,22 @@ Le type est également très simple, il contient une fonction intercept, qui ne 
 Angular utilise également la notion d'intercepteur, nous la verrons en troisième année
 */
 
-// Implémentez ici
+type Interceptor = {
+  intercept: (request: HttpRequest) => void;
+};
+
 
 /*
 5. Déclarez un type ValidationSchema.
 
 Lorsque notre API va recevoir des informations, par exemple lorsque l'utilisateur va demander à créer une ressource
-sur notre serveur, nous définirons un schéma de validation qui permettra de veiller à ce que ce qui a été 
+sur notre serveur, nous définirons un schéma de validation qui permettra de veiller à ce que ce qui a été
 reçu correspond à ce qui était attendu.
 
-Le type ValidationSchema est constitué de deux propriétés: 
+Le type ValidationSchema est constitué de deux propriétés:
 
-- fields, un objet dynamique, dont les clés sont des chaines de caractères et les valeurs sont des objets dynamiques dont les clés sont des chaines de caractères et les valeurs sont de type inconnu 
-    - par exemple on pourrait avoir l'objet suivant: { 
+- fields, un objet dynamique, dont les clés sont des chaines de caractères et les valeurs sont des objets dynamiques dont les clés sont des chaines de caractères et les valeurs sont de type inconnu
+    - par exemple on pourrait avoir l'objet suivant: {
         fields: {
             monChamp1: { type: "int", min: 3}
             monChamp2: { type: "string", isArray: true, minArrayLength: 5, each: true}
@@ -100,12 +99,15 @@ Le type ValidationSchema est constitué de deux propriétés:
 - required, un tableau de chaines de caractères, facultatif
 */
 
-// Implémentez ici
+type ValidationSchema = {
+  fields: Map<string, Map<string, unknown>>;
+  required?: string[];
+};
 
 /*
 6. La Route
 
-La route est la matérialisation du canal de communication entre le frontend et le backend. 
+La route est la matérialisation du canal de communication entre le frontend et le backend.
 Une route est composée des paramètres suivants:
 
 - path, une chaine de caractères représentant l'url de la ressource sur le serveur
@@ -117,23 +119,37 @@ Une route est composée des paramètres suivants:
 - responseInterceptors, une liste d'Interceptors, facultative
 
 Vous verrez tout ça plus en détail en cours d'Architecture et en troisième année
-/*
+*/
 
-// Implémentez ici
+type Route = {
+    path: string;
+    method: HttpMethod;
+    handler: string;
+    guards?: Guard[];
+    validationSchema?: ValidationSchema;
+    requestInterceptors?: Interceptor[];
+    responseInterceptors?: Interceptor[];
+};
 
 
 /*
 7. La Réponse
 
-La réponse correspond à l'information obtenue après traitement de la requête. 
+La réponse correspond à l'information obtenue après traitement de la requête.
 C'est ce qui va être renvoyé à l'envoyeur initial.
 
-Notre réponse aura les propriétés suivantes: 
+Notre réponse aura les propriétés suivantes:
 
 - statusCode, un nombre
 - headers, une fusion entre un objet contenant obligatoirement la propriété "Content-Type": string et un objet dynamique
 - body, un objet dynamique facultatif, dont les clés sont des chaines de caractères, et les valeurs sont inconnues.
 
-Angular gèrera une bonne partie de la réponse pour vous, il vous donnera directement accès au body, et propose un 
+Angular gèrera une bonne partie de la réponse pour vous, il vous donnera directement accès au body, et propose un
 système de gestion d'erreur.
 */
+
+type HttpResponse = {
+  statusCode: number;
+  headers: { "Content-Type": string } & Map<string, string>;
+  body?: Map<string, unknown>;
+};

@@ -11,3 +11,11 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'tp2';
 }
+
+
+type Mc = {
+  tag : "S1" | "S2" | "S3" | "S4" | "S5" | "S6" | "Ressource";
+  imgUrl : String;
+  link : String;
+
+}
