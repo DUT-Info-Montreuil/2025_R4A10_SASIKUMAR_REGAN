@@ -1,0 +1,40 @@
+.slide-content {
+  background: linear-gradient(135deg, #5A98F2 0%, #3F78E0 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+
+  .info {
+    flex-grow: 1;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .title {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  .quote {
+    font-size: 16px;
+    font-style: italic;
+    margin-left: 20px;
+  }
+}

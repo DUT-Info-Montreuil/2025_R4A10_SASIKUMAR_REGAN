@@ -1,0 +1,45 @@
+.services {
+  text-align: center;
+  margin: 80px auto;
+  padding: 50px 20px;
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .services-description {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .learn-more-btn {
+    width: 200px;
+    height: 60px;
+    border: 1.4px solid #458FF6;
+    background: transparent;
+    color: #458FF6;
+    font-size: 16px;
+    border-radius: 55px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto 0;
+
+  }
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Section3Component } from './section3.component';
+import { ImageSlideComponent } from './image-slide.component';
 
-describe('Section3Component', () => {
-  let component: Section3Component;
-  let fixture: ComponentFixture<Section3Component>;
+describe('ImageSlideComponent', () => {
+  let component: ImageSlideComponent;
+  let fixture: ComponentFixture<ImageSlideComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Section3Component]
+      imports: [ImageSlideComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(Section3Component);
+    fixture = TestBed.createComponent(ImageSlideComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

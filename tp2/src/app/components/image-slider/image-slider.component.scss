@@ -1,0 +1,50 @@
+.image-slider {
+  text-align: center;
+  padding: 50px 20px;
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .slide-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #458FF6;
+      transition: 0.3s;
+
+      &:hover {
+        color: #0056b3;
+      }
+    }
+
+    span {
+      width: 8px;
+      height: 8px;
+      background: #ccc;
+      border-radius: 50%;
+      margin: 0 5px;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .active {
+      background: #458FF6;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

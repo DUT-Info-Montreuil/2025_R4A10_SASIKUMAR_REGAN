@@ -1,0 +1,15 @@
+<section class="services">
+    <h2>Our services</h2>
+    <p class="services-description">
+        We provide to you the best choices for you. Adjust it to your health needs and make sure your undergo treatment
+        with our highly qualified doctors you can consult with us which type of service is suitable for your health.
+    </p>
+
+    <div class="services-grid">
+        @for (service of services; track service.title) {
+            <app-service-card [service]="service"></app-service-card>
+        }
+    </div>
+
+    <button class="learn-more-btn">Learn more</button>
+</section>
