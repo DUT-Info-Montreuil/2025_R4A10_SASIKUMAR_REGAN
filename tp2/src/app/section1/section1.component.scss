@@ -1,0 +1,55 @@
+#virtual-healthcare {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+
+}
+
+.left-content {
+  width: 445px;
+  height: 338px;
+  top: 283px;
+  left: 190px;
+  border-radius: 55px;
+
+}
+
+.img-vh {
+  width: 693px;
+  height: 598px;
+  top: 177px;
+  left: 744px;
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: 700;
+  color: black;
+  padding-bottom: 37px;
+}
+
+p {
+  font-size: 21px;
+  font-weight: 300;
+  color: #7D7987;
+  padding-bottom: 37px;
+
+}
+
+.btn-consult-today {
+  background-color: #458FF6;
+  color: white;
+  width: 200px;
+  height: 56px;
+  top: 564px;
+  left: 190px;
+  border-radius: 55px;
+  border-color: #458FF6;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 60px;
+
+
+}
