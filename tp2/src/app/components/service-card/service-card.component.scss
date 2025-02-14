@@ -37,3 +37,45 @@
     max-width: 80%;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .service-card {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .icon img {
+    width: 60px;
+    height: 60px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .service-card {
+    width: 400px;
+    height: 380px;
+  }
+
+  .icon img {
+    width: 90px;
+    height: 90px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}

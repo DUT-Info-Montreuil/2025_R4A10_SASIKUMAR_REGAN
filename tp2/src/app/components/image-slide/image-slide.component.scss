@@ -38,3 +38,56 @@
     margin-left: 20px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .slide-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+    max-width: 90%;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+
+  .info {
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  .quote {
+    font-size: 14px;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .slide-content {
+    max-width: 1000px;
+    padding: 50px;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  .quote {
+    font-size: 18px;
+  }
+}

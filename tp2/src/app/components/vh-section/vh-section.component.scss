@@ -3,23 +3,20 @@
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-items: center;
-
+  gap: 20px;
+  padding: 50px;
 }
 
 .left-content {
   width: 445px;
-  height: 338px;
-  top: 283px;
-  left: 190px;
+  height: auto;
   border-radius: 55px;
-
 }
 
 .img-vh {
   width: 693px;
-  height: 598px;
-  top: 177px;
-  left: 744px;
+  height: auto;
+  max-width: 100%;
 }
 
 h1 {
@@ -34,7 +31,6 @@ p {
   font-weight: 300;
   color: #7D7987;
   padding-bottom: 37px;
-
 }
 
 .btn-consult-today {
@@ -42,14 +38,52 @@ p {
   color: white;
   width: 200px;
   height: 56px;
-  top: 564px;
-  left: 190px;
   border-radius: 55px;
-  border-color: #458FF6;
-
+  border: none;
   font-weight: 700;
   font-size: 18px;
-  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
+.btn-consult-today:hover {
+  background-color: #3b82f6;
+}
 
+@media screen and (max-width: 600px) {
+  #virtual-healthcare {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .left-content {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .img-vh {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .btn-consult-today {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #virtual-healthcare {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
+  }
 }
