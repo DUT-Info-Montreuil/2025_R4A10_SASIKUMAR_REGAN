@@ -1,0 +1,11 @@
+<h2>Nos Voyages</h2>
+<ul class="grid">
+  @for (trip of trips; track $index) {
+    <li>
+      <p>Destination: {{ trip.destination }}</p>
+      <p>Catégorie: {{ trip.description }}</p>
+      <a [routerLink]="'/detail/' + trip.id">Voir plus</a>
+      <button (click)="onDeleteTrip(trip.id)">Supprimer ce voyage</button>
+    </li>
+  }
+</ul>

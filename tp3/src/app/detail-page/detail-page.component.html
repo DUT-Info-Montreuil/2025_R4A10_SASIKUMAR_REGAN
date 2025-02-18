@@ -1,0 +1,5 @@
+<p> Bienvenue sur la page détail n°{{id}}</p>
+<p>Destination: {{ trip?.destination | uppercase }}</p>
+<p>Description: {{ trip?.description }}</p>
+<button (click)="onDeleteTrip(id)">Supprimer</button>
+

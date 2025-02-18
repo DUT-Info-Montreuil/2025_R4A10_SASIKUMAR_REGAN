@@ -1,0 +1,13 @@
+<h1>Génération d'un Voyage</h1>
+<button (click)="generateTrip()">Générer un voyage</button>
+
+@if (generatedTrip) {
+  <div class="trip-card">
+    <h2>{{ generatedTrip.id }}</h2>
+    <h2>{{ generatedTrip.destination }}</h2>
+    <p>{{ generatedTrip.description }}</p>
+    <p>Date : {{ generatedTrip.date }}</p>
+    <p>Prix : {{ generatedTrip.price }}€</p>
+    <button (click)="validateTrip()">Valider</button>
+  </div>
+}

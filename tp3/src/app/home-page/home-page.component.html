@@ -1,0 +1,20 @@
+<p>Bienvenue sur la Home Page</p>
+
+@for (trip of trips; track trip.id) {
+  <button (click)="onPageButtonClick(trip.id)">
+    Naviguer vers la page détail/{{ trip.id }}
+  </button>
+}
+
+<app-trips-list [trips]="trips"></app-trips-list>
+
+@if (showDialog) {
+  <div class="overlay">
+    <div class="modal">
+      <h2>Navigation</h2>
+      <p>Vous allez naviguer vers la page détail/{{ selectedID }}, êtes-vous sûr ?</p>
+      <button (click)="onNavigation()">Oui</button>
+      <button (click)="onDialogClose()">Annuler</button>
+    </div>
+  </div>
+}
